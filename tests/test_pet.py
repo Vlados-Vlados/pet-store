@@ -8,9 +8,9 @@
 """
 
 class TestPetLifecycle:
-    def test_create_pet(self, create_pet):
+    def test_create_pet(self, create_pet, example_pet_data):
         assert create_pet.status_code == 200
-        assert create_pet.json()
+        assert create_pet.json().get('id') == example_pet_data['id']
 
     def test_read_after_created_pet(self, get_created_pet, example_pet_data):
         assert get_created_pet.status_code == 200
