@@ -7,8 +7,12 @@ pet_client = None
 def session_pet_client(example_pet_data):
     pet_client = PetClient()
 
-    yield pet_client
-    pet_client.delete_pet(example_pet_data['id'])
+    return pet_client
+
+@pytest.fixture(scope="session", autouse=True)
+def cleanup_created_pet(session_pet_client, example_pet_data):
+    yield
+    session_pet_client.delete_pet(example_pet_data['id'])
 
 
 @pytest.fixture
