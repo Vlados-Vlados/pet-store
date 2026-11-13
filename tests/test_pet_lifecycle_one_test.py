@@ -1,4 +1,4 @@
-#Для практики также реализован варинт с тестированием сценария в структуре одного теста. Основным решением является test_pet_lifecycle_one_test.py
+#Для практики также реализован вариант с тестированием сценария в структуре одного теста. Основным решением является test_pet_lifecycle_one_test.py
 
 def test_life_cycle_pet(session_pet_client, example_pet_data, for_update_pet_data):
     create_pet = session_pet_client.create_pet(example_pet_data)
