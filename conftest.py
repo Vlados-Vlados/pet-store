@@ -4,7 +4,7 @@ from api.api_client import PetClient
 pet_client = None
 
 @pytest.fixture(scope="session")
-def session_pet_client(example_pet_data):
+def session_pet_client():
     pet_client = PetClient()
 
     return pet_client
