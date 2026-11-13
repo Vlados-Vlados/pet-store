@@ -12,7 +12,7 @@ def session_pet_client():
 @pytest.fixture(scope="session", autouse=True)
 def cleanup_created_pet(session_pet_client, example_pet_data):
     yield
-    session_pet_client.delete_pet(example_pet_data['id'])
+    session_pet_client.delete_pet(example_pet_data['id']) #Даже если этот запрос упадет, при повторном запуске сценария, это никак не помешает тестированию. Очистка здесь имеет характер обозначения
 
 
 @pytest.fixture
